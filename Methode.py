@@ -2,7 +2,7 @@ import altair as alt
 import pandas as pd
 import numpy as np
 from scipy import stats
-import locale
+#import locale
 import plotly.express as px
 import networkx as nx
 from prince import MCA
@@ -34,7 +34,7 @@ def plot_visiteurs():
     return chart
 
 def plot_transactions():
-    locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')
+    #locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')
     start_date = pd.to_datetime('2022-04-01')
     end_date = pd.to_datetime('2023-05-1')
     holidays = [
