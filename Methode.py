@@ -64,6 +64,11 @@ import plotly.graph_objects as go
 from prince import MCA
 
 
+import pandas as pd
+import networkx as nx
+import plotly.graph_objects as go
+from prince import MCA
+
 def plot_network(df):
     # Sélection des variables catégorielles pour l'ACM
     cat_vars = ["nom_produit", "type_action", "type_client", "region_geographique"]
@@ -92,9 +97,16 @@ def plot_network(df):
     # Ajouter les informations de texte pour chaque nœud
     nodes['node_text'] = nodes['node']
 
-    
+    # Ajouter une colonne "size" pour les nœuds type_client et region_geographique
+    nodes.loc[nodes['node'].isin(df['type_client'].unique()), 'size'] = 10
+    nodes.loc[nodes['node'].isin(df['region_geographique'].unique()), 'size'] = 10
+
+    # Ajouter une colonne "size" pour les nœuds nom_produit
+    nodes['size'] = 100
+
     # Créer un DataFrame des arêtes
     edges = pd.DataFrame(list(G.edges()), columns=['source', 'target'])
+    edges['text'] = edges['source'] + ' - ' + edges['target']
 
     # Créer un graphique de réseau interactif avec Plotly
     fig = go.Figure()
@@ -104,15 +116,16 @@ def plot_network(df):
         y=nodes[nodes['node'].isin(df['type_client'].unique())]['y'],
         mode='markers',
         marker=dict(
-            size=30,
+            size=25,
             color='blue',
             opacity=0.8,
-            line=dict(width=1.5, color='black')
+            line=dict(width=0.5, color='black')
         ),
         text=nodes[nodes['node'].isin(df['type_client'].unique())]['node_text'],
-        hoverinfo='text',
-        textfont=dict(size=25),
-        textposition='middle center'
+        hoverinfo='text+name',
+        textfont=dict(size=10),
+        textposition='middle center',
+        name='type_client'
     )
 
     node_trace_region = go.Scatter(
@@ -121,14 +134,15 @@ def plot_network(df):
         mode='markers',
         marker=dict(
             size=50,
-            color='red',
+            color='green',
             opacity=0.8,
             line=dict(width=0.5, color='black')
         ),
         text=nodes[nodes['node'].isin(df['region_geographique'].unique())]['node_text'],
-        hoverinfo='text',
-        textfont=dict(size=25),
-        textposition='middle center'
+        hoverinfo='text+name',
+        textfont=dict(size=10),
+        textposition='middle center',
+        name='region_geographique'
     )
 
     node_trace_produit = go.Scatter(
@@ -136,54 +150,99 @@ def plot_network(df):
         y=nodes[nodes['node'].isin(df['nom_produit'].unique())]['y'],
         mode='markers',
         marker=dict(
-            size=10,
-            color='green',
+            size=8,
+            color='red',
             opacity=0.8,
-            line=dict(width=0.5, color='black')
+            line=dict(width=0.5, color='black'),
+            
         ),
         text=nodes[nodes['node'].isin(df['nom_produit'].unique())]['node_text'],
-        hoverinfo='text',
-        textfont=dict(size=25),
-        textposition='middle center'
+        hoverinfo='text+name',
+        textfont=dict(size=10),
+        textposition='middle center',
+        name='Nom du produit'
     )
 
-    # Ajouter les nœuds au graphique
+    # Ajouter les arêtes au graphique
+    edge_x = []
+    edge_y = []
+    for edge in G.edges():
+        x0, y0 = pos[edge[0]]
+        x1, y1 = pos[edge[1]]
+        edge_x.append(x0)
+        edge_x.append(x1)
+        edge_x.append(None)
+        edge_y.append(y0)
+        edge_y.append(y1)
+        edge_y.append(None)
+
+    edge_trace = go.Scatter(
+        x=edge_x, y=edge_y,
+        line=dict(width=0.5, color='#888'),
+        hoverinfo='none',
+        mode='lines')
+
     fig.add_trace(node_trace_type_client)
     fig.add_trace(node_trace_region)
     fig.add_trace(node_trace_produit)
-
-    # Add edges to the plot
-    edge_trace = go.Scatter(
-        x=[],
-        y=[],
-        line=dict(width=1, color='gray'),
-        hoverinfo='skip',
-        mode='lines'
-    )
-
-    for i, edge in edges.iterrows():
-        x0 = nodes.loc[nodes['node'] == edge['source'], 'x'].iloc[0]
-        y0 = nodes.loc[nodes['node'] == edge['source'], 'y'].iloc[0]
-        x1 = nodes.loc[nodes['node'] == edge['target'], 'x'].iloc[0]
-        y1 = nodes.loc[nodes['node'] == edge['target'], 'y'].iloc[0]
-        edge_trace['x'] += tuple([x0, x1, None])
-        edge_trace['y'] += tuple([y0, y1, None])
-
     fig.add_trace(edge_trace)
 
-    # Mise en forme du graphique
+    # Ajouter les annotations pour les nœuds type_client
+    for node in nodes[nodes['node'].isin(df['type_client'].unique())]['node']:
+        x, y = nodes[nodes['node'] == node][['x', 'y']].values[0]
+        fig.add_annotation(
+            x=x,
+            y=y,
+            xref="x",
+            yref="y",
+            text=node,
+            showarrow=False,
+            font=dict(color='white', size=20),
+            bgcolor=None
+        )
+
+    # Ajouter les annotations pour les nœuds region_geographique
+    for node in nodes[nodes['node'].isin(df['region_geographique'].unique())]['node']:
+        x, y = nodes[nodes['node'] == node][['x', 'y']].values[0]
+        fig.add_annotation(
+            x=x,
+            y=y,
+            xref="x",
+            yref="y",
+            text=node,
+            showarrow=False,
+            font=dict(color='white', size=20),
+            bgcolor=None
+        )
+
+    # Ajouter les annotations pour les nœuds nom_produit
+    for node in nodes[nodes['node'].isin(df['nom_produit'].unique())]['node']:
+        x, y = nodes[nodes['node'] == node][['x', 'y']].values[0]
+        fig.add_annotation(
+            x=x,
+            y=y,
+            xref="x",
+            yref="y",
+            text=node,
+            showarrow=False,
+            font=dict(color='white', size=10),
+            bgcolor=None
+        )
+
+    # Configurer le layout du graphique
     fig.update_layout(
-        width=900,
-        height=900,
-        showlegend=False,
-        margin=dict(t=50, b=50, l=50, r=50),
+        width=1200,
+        height=1600,
+        showlegend=True,
         hovermode='closest',
-        font=dict(size=12)
+        margin=dict(b=20,l=5,r=5,t=40),
+        annotations=[],
+        xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+        yaxis=dict(showgrid=False, zeroline=False, showticklabels=False)
     )
 
-    # Ajouter un titre
-    fig.update_layout(title_text='Réseau de produits, clients et régions géographiques')
-
+    # Afficher le graphique
+    
     return fig
 
 # Example usage in a streamlit app
