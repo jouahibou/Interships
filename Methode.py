@@ -3,10 +3,12 @@ import pandas as pd
 import numpy as np
 from scipy import stats
 import locale
-import matplotlib.pyplot as plt
 import plotly.express as px
 import networkx as nx
 from prince import MCA
+import plotly.graph_objects as go
+import streamlit as st
+
 
 def plot_visiteurs():
     # Donnees
@@ -118,10 +120,7 @@ def analyze_transactions():
 
 
 
-import plotly.graph_objects as go
-import streamlit as st
-from prince import MCA
-import networkx as nx
+
 
 
 def plot_network(df):
