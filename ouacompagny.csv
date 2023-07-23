@@ -1,0 +1,165 @@
+id,date,type_action,type_client,region_geographique,category,nom_produit
+110,2022-04-01 00:00:00.000000000,achat,clients_existants,Etats-Unis,mode,Tongs Reef Fanning
+110,2022-09-30 13:31:48.724832214,vue,nouveaux_visiteurs,Sénégal,mode,Tongs Reef Fanning
+110,2023-03-21 05:28:35.436241608,vue,nouveaux_visiteurs,Sénégal,mode,Tongs Reef Fanning
+127,2022-04-03 17:23:45.503355704,vue,nouveaux_visiteurs,Etats-Unis,maison,Mixer plongeant Moulinex DD65H810
+127,2022-04-03 17:23:45.503355704,vue,nouveaux_visiteurs,Etats-Unis,electronique,Microphone à condensateur Rode NT1-A
+127,2022-05-03 16:45:06.040268456,ajout_panier,nouveaux_visiteurs,Sénégal,maison,Mixer plongeant Moulinex DD65H810
+127,2022-05-03 16:45:06.040268456,ajout_panier,nouveaux_visiteurs,Sénégal,electronique,Microphone à condensateur Rode NT1-A
+67,2022-04-06 10:47:31.006711409,ajout_panier,clients_existants,Côte d'Ivoire,sport,Short de basketball Nike Dri-FIT
+67,2022-04-06 10:47:31.006711409,ajout_panier,clients_existants,Côte d'Ivoire,electronique,Carte mémoire SanDisk Ultra
+67,2022-06-24 11:16:30.604026845,vue,clients_existants,France,sport,Short de basketball Nike Dri-FIT
+67,2022-06-24 11:16:30.604026845,vue,clients_existants,France,electronique,Carte mémoire SanDisk Ultra
+99,2022-04-09 04:11:16.510067114,achat,clients_existants,Côte d'Ivoire,sport,Sac à dos de randonnée Quechua Forclaz
+99,2023-01-06 15:47:06.845637584,vue,clients_existants,Sénégal,sport,Sac à dos de randonnée Quechua Forclaz
+18,2022-04-11 21:35:02.013422818,vue,nouveaux_visiteurs,Sénégal,maison,Aspirateur Philips PowerPro Compact
+124,2022-04-20 01:46:18.523489932,vue,nouveaux_visiteurs,Sénégal,services,Service de nettoyage professionnel
+124,2022-04-20 01:46:18.523489932,vue,nouveaux_visiteurs,Sénégal,mode,Blazer en laine Zara
+58,2022-04-22 19:10:04.026845637,vue,nouveaux_visiteurs,Sénégal,horlogerie,Montre-bracelet Casio G-Shock
+215,2022-04-25 12:33:49.530201342,vue,nouveaux_visiteurs,Sénégal,electronique,Enceinte Bluetooth JBL Charge 5
+48,2022-05-06 10:08:51.543624161,vue,clients_existants,Sénégal,alimentation,Miel du Sénégal
+48,2022-06-29 22:04:01.610738255,ajout_panier,clients_existants,Côte d'Ivoire,alimentation,Miel du Sénégal
+48,2023-03-10 07:53:33.422818792,vue,nouveaux_visiteurs,Sénégal,alimentation,Miel du Sénégal
+74,2022-05-09 03:32:37.046979865,vue,nouveaux_visiteurs,Côte d'Ivoire,sport,Pantalon de jogging Adidas Tiro 21
+74,2022-05-09 03:32:37.046979865,vue,nouveaux_visiteurs,Côte d'Ivoire,mode,Montre Casio G-Shock
+33,2022-05-11 20:56:22.550335570,vue,nouveaux_visiteurs,Sénégal,maison,Bureau en bois Ikea Micke
+175,2022-05-14 14:20:08.053691275,vue,nouveaux_visiteurs,Etats-Unis,alimentation,Soda Coca-Cola
+175,2022-05-14 14:20:08.053691275,vue,nouveaux_visiteurs,Etats-Unis,mode,Bottes en cuir Timberland 6-Inch
+165,2022-05-28 05:18:55.570469798,vue,clients_existants,Sénégal,horlogerie,Montre de plongée Citizen Promaster
+165,2022-05-28 05:18:55.570469798,vue,clients_existants,Sénégal,sport,Veste de running Asics Silver
+165,2022-05-28 05:18:55.570469798,vue,clients_existants,Sénégal,electronique,Smartphone Samsung Galaxy A32
+209,2022-06-02 16:06:26.577181208,vue,nouveaux_visiteurs,Sénégal,electronique,Stabilisateur DJI Ronin-S
+209,2022-10-08 17:43:05.234899328,vue,nouveaux_visiteurs,Bénin,electronique,Stabilisateur DJI Ronin-S
+69,2022-06-05 09:30:12.080536912,vue,nouveaux_visiteurs,Sénégal,sport,Vélo elliptique ProForm Endurance 320E
+69,2022-06-05 09:30:12.080536912,vue,nouveaux_visiteurs,Sénégal,electronique,Enceinte intelligente Amazon Echo Dot
+69,2023-04-28 09:01:12.483221476,achat,nouveaux_visiteurs,France,sport,Vélo elliptique ProForm Endurance 320E
+69,2023-04-28 09:01:12.483221476,achat,nouveaux_visiteurs,France,electronique,Enceinte intelligente Amazon Echo Dot
+50,2022-06-08 02:53:57.583892617,vue,nouveaux_visiteurs,Sénégal,electronique,Chargeur de batterie Anker PowerCore 10000mAh
+50,2022-11-21 08:03:13.288590604,ajout_panier,nouveaux_visiteurs,Cameroun,electronique,Chargeur de batterie Anker PowerCore 10000mAh
+56,2022-06-10 20:17:43.087248322,vue,clients_existants,Sénégal,mode,Leggings de yoga Lululemon
+196,2022-06-13 13:41:28.590604027,ajout_panier,clients_existants,Sénégal,immobilier,Terrain à vendre à Dakar
+85,2022-06-19 00:28:59.597315436,achat,nouveaux_visiteurs,Sénégal,mode,Sacoche en cuir Fossil Logan
+85,2022-06-27 04:40:16.107382550,vue,nouveaux_visiteurs,Cameroun,mode,Sacoche en cuir Fossil Logan
+40,2022-06-21 17:52:45.100671141,vue,clients_existants,France,solaire,Convertisseur de tension 12V/220V 1000W
+190,2022-07-02 15:27:47.114093959,vue,nouveaux_visiteurs,France,electronique,Écouteurs sans fil Apple AirPods Pro
+190,2023-02-19 06:07:14.899328856,vue,clients_existants,Cameroun,electronique,Écouteurs sans fil Apple AirPods Pro
+177,2022-07-05 08:51:32.617449664,vue,nouveaux_visiteurs,France,sport,Planche de surf Bic Mini Malibu
+177,2022-07-05 08:51:32.617449664,vue,nouveaux_visiteurs,France,mode,Chaussettes en coton Hugo Boss
+136,2022-07-08 02:15:18.120805369,ajout_panier,nouveaux_visiteurs,Bénin,electronique,Scanner de codes-barres Zebra DS2208
+136,2023-05-03 19:48:43.489932884,vue,nouveaux_visiteurs,Côte d'Ivoire,electronique,Scanner de codes-barres Zebra DS2208
+100,2022-07-13 13:02:49.127516778,achat,nouveaux_visiteurs,Sénégal,immobilier,Villa à vendre à Saly
+100,2023-02-27 10:18:31.409395972,ajout_panier,nouveaux_visiteurs,Etats-Unis,immobilier,Villa à vendre à Saly
+100,2023-03-04 21:06:02.416107380,achat,clients_existants,Etats-Unis,immobilier,Villa à vendre à Saly
+181,2022-07-21 17:14:05.637583892,vue,nouveaux_visiteurs,Cameroun,sport,Gants de boxe Everlast
+181,2022-07-21 17:14:05.637583892,vue,nouveaux_visiteurs,Cameroun,maison,Grille-pain Philips HD2581/00
+181,2022-09-25 02:44:17.718120804,vue,nouveaux_visiteurs,Sénégal,sport,Gants de boxe Everlast
+181,2022-09-25 02:44:17.718120804,vue,nouveaux_visiteurs,Sénégal,maison,Grille-pain Philips HD2581/00
+103,2022-07-24 10:37:51.140939596,achat,nouveaux_visiteurs,France,alimentation,Bière locale Gazelle
+98,2022-07-27 04:01:36.644295302,vue,nouveaux_visiteurs,Etats-Unis,cosmetique,Mascara L'Oréal Paris Voluminous Lash Paradise
+214,2022-07-29 21:25:22.147651006,vue,nouveaux_visiteurs,France,alimentation,Huile d'olive Carapelli Classico
+214,2022-07-29 21:25:22.147651006,vue,nouveaux_visiteurs,France,cosmetique,Maquillage Maybelline Superstay 24H
+119,2022-08-01 14:49:07.651006710,vue,nouveaux_visiteurs,Sénégal,electronique,Clavier sans fil Apple Magic Keyboard
+119,2022-08-01 14:49:07.651006710,vue,nouveaux_visiteurs,Sénégal,mode,Casquette New Era 9FORTY
+95,2022-08-04 08:12:53.154362416,vue,clients_existants,France,immobilier,Magasin à vendre à Mbour
+95,2022-08-04 08:12:53.154362416,vue,clients_existants,France,mode,Chaussures de ville Clarks Desert Boot
+132,2022-08-17 23:11:40.671140940,vue,nouveaux_visiteurs,Cameroun,maison,Poêle antiadhésive Tefal Talent Pro E44006
+65,2022-08-26 03:22:57.181208054,vue,nouveaux_visiteurs,Sénégal,sport,Tapis de yoga Liforme
+139,2022-09-06 00:57:59.194630872,achat,nouveaux_visiteurs,Bénin,electronique,Télévision TCL 4K UHD Smart TV
+139,2022-09-06 00:57:59.194630872,achat,nouveaux_visiteurs,Bénin,electronique,Disque dur externe Seagate Expansion Portable
+139,2022-09-06 00:57:59.194630872,achat,nouveaux_visiteurs,Bénin,mode,Collants en nylon Wolford
+23,2022-09-08 18:21:44.697986576,vue,nouveaux_visiteurs,Bénin,services,Service de livraison à domicile
+206,2022-09-11 11:45:30.201342282,achat,nouveaux_visiteurs,Bénin,sport,Chaussures de football Nike Mercurial Superfly
+206,2022-09-11 11:45:30.201342282,achat,nouveaux_visiteurs,Bénin,mode,Soutien-gorge en dentelle Calvin Klein
+206,2022-09-11 11:45:30.201342282,achat,nouveaux_visiteurs,Bénin,mode,Blouson aviateur Alpha Industries MA-1
+206,2022-09-11 11:45:30.201342282,achat,nouveaux_visiteurs,Bénin,maison,Étagère en métal et bois Ikea Vittsjö
+147,2022-09-14 05:09:15.704697986,vue,nouveaux_visiteurs,Côte d'Ivoire,electronique,Caméra 360° Ricoh Theta SC2
+16,2022-09-16 22:33:01.208053690,vue,nouveaux_visiteurs,Sénégal,mode,Bijoux en argent Tiffany & Co.
+16,2023-03-29 09:39:51.946308724,vue,nouveaux_visiteurs,Côte d'Ivoire,mode,Bijoux en argent Tiffany & Co.
+159,2022-09-22 09:20:32.214765100,vue,nouveaux_visiteurs,Etats-Unis,alimentation,Chocolat noir Lindt Excellence
+159,2022-09-22 09:20:32.214765100,vue,nouveaux_visiteurs,Etats-Unis,cosmetique,Shampooing Head & Shoulders Classic Clean
+159,2023-05-01 02:24:57.986577180,vue,clients_existants,Côte d'Ivoire,alimentation,Chocolat noir Lindt Excellence
+159,2023-05-01 02:24:57.986577180,vue,clients_existants,Côte d'Ivoire,cosmetique,Shampooing Head & Shoulders Classic Clean
+71,2022-09-27 20:08:03.221476510,vue,nouveaux_visiteurs,Sénégal,mode,Sneakers Converse Chuck Taylor All Star
+155,2022-10-06 00:19:19.731543624,vue,nouveaux_visiteurs,France,electronique,Haut-parleur intelligent Google Nest Audio
+135,2022-10-11 11:06:50.738255032,achat,nouveaux_visiteurs,Côte d'Ivoire,vehicules,Scooter électrique Xiaomi Mi Electric Scooter
+135,2022-10-11 11:06:50.738255032,achat,nouveaux_visiteurs,Côte d'Ivoire,mode,Robe en coton Mango
+135,2022-10-11 11:06:50.738255032,achat,nouveaux_visiteurs,Côte d'Ivoire,maison,Table basse en bois massif Ikea Hemnes
+15,2022-10-14 04:30:36.241610738,achat,clients_existants,Côte d'Ivoire,mode,Sac bandoulière Gucci Soho
+15,2023-01-25 17:33:25.369127516,vue,clients_existants,Sénégal,mode,Sac bandoulière Gucci Soho
+200,2022-10-25 02:05:38.255033556,achat,nouveaux_visiteurs,Etats-Unis,vehicules,Bateau à moteur Jeanneau Merry Fisher
+200,2022-10-25 02:05:38.255033556,achat,nouveaux_visiteurs,Etats-Unis,mode,Veste en cuir Schott Perfecto
+130,2022-10-27 19:29:23.758389260,vue,clients_existants,Sénégal,sport,Raquette de tennis Wilson Federer
+130,2022-10-27 19:29:23.758389260,vue,clients_existants,Sénégal,electronique,Console de jeu Sony PlayStation 5
+130,2022-10-27 19:29:23.758389260,vue,clients_existants,Sénégal,electronique,Enregistreur vidéo numérique Dahua Technology
+130,2022-10-27 19:29:23.758389260,vue,clients_existants,Sénégal,mode,Parka Canada Goose Expedition
+130,2023-04-22 22:13:41.476510064,achat,nouveaux_visiteurs,Côte d'Ivoire,sport,Raquette de tennis Wilson Federer
+130,2023-04-22 22:13:41.476510064,achat,nouveaux_visiteurs,Côte d'Ivoire,electronique,Console de jeu Sony PlayStation 5
+130,2023-04-22 22:13:41.476510064,achat,nouveaux_visiteurs,Côte d'Ivoire,electronique,Enregistreur vidéo numérique Dahua Technology
+130,2023-04-22 22:13:41.476510064,achat,nouveaux_visiteurs,Côte d'Ivoire,mode,Parka Canada Goose Expedition
+187,2022-11-02 06:16:54.765100672,vue,nouveaux_visiteurs,Sénégal,cosmetique,Fond de teint Maybelline Fit Me Matte + Poreless
+184,2022-11-07 17:04:25.771812080,vue,nouveaux_visiteurs,Sénégal,sport,Maillot de bain Arena Solid Swim Pro
+184,2022-11-07 17:04:25.771812080,vue,nouveaux_visiteurs,Sénégal,electronique,Disque dur portable LaCie Rugged
+26,2022-11-10 10:28:11.275167784,vue,nouveaux_visiteurs,Sénégal,cosmetique,Gel douche Axe Dark Temptation
+213,2022-11-15 21:15:42.281879192,vue,clients_existants,Sénégal,sport,Ballon de football Adidas Tango
+213,2022-11-15 21:15:42.281879192,vue,clients_existants,Sénégal,electronique,Scanner Canon CanoScan LiDE 400
+213,2022-11-15 21:15:42.281879192,vue,clients_existants,Sénégal,mode,Short de bain en polyester Quiksilver Everyday 15
+57,2022-11-18 14:39:27.785234900,ajout_panier,nouveaux_visiteurs,Sénégal,sport,Balle de tennis Wilson US Open
+57,2022-11-18 14:39:27.785234900,ajout_panier,nouveaux_visiteurs,Sénégal,sport,Sac de sport Adidas Tiro Duffel Bag
+57,2022-11-18 14:39:27.785234900,ajout_panier,nouveaux_visiteurs,Sénégal,mode,Chemise en coton Uniqlo Oxford
+57,2022-12-15 20:37:02.818791944,vue,clients_existants,France,sport,Balle de tennis Wilson US Open
+57,2022-12-15 20:37:02.818791944,vue,clients_existants,France,sport,Sac de sport Adidas Tiro Duffel Bag
+57,2022-12-15 20:37:02.818791944,vue,clients_existants,France,mode,Chemise en coton Uniqlo Oxford
+19,2022-11-26 18:50:44.295302012,vue,nouveaux_visiteurs,Côte d'Ivoire,vehicules,Quad neuf Polaris Sportsman
+19,2022-11-26 18:50:44.295302012,vue,nouveaux_visiteurs,Côte d'Ivoire,electronique,Adaptateur secteur universel BESTEK
+19,2022-11-26 18:50:44.295302012,vue,nouveaux_visiteurs,Côte d'Ivoire,mode,Bonnet en laine Carhartt
+2,2022-12-02 05:38:15.302013420,achat,clients_existants,Sénégal,alimentation,Café moulu Starbuck's Pike Place Roast
+2,2022-12-02 05:38:15.302013420,achat,clients_existants,Sénégal,electronique,Souris sans fil Logitech M705
+52,2022-12-04 23:02:00.805369128,vue,clients_existants,Sénégal,mode,Parapluie Fulton Birdcage
+173,2022-12-07 16:25:46.308724832,vue,nouveaux_visiteurs,Sénégal,cosmetique,Parfum Hugo Boss Bottled
+173,2022-12-07 16:25:46.308724832,vue,nouveaux_visiteurs,Sénégal,mode,Baskets Puma Smash v2
+173,2022-12-07 16:25:46.308724832,vue,nouveaux_visiteurs,Sénégal,maison,Canapé convertible en tissu Ikea Friheten
+118,2022-12-10 09:49:31.812080536,ajout_panier,clients_existants,Cameroun,mode,Sandales Adidas Adilette
+49,2022-12-13 03:13:17.315436240,vue,nouveaux_visiteurs,Sénégal,cosmetique,Ombre à paupières NYX Professional Makeup Ultimate Shadow Palette
+49,2022-12-13 03:13:17.315436240,vue,nouveaux_visiteurs,Sénégal,mode,Costume en polyester Celio Slim Fit
+178,2022-12-18 14:00:48.322147648,vue,nouveaux_visiteurs,Sénégal,electronique,Routeur Wi-Fi TP-Link Archer C7 AC1750
+178,2022-12-18 14:00:48.322147648,vue,nouveaux_visiteurs,Sénégal,mode,T-shirt en coton Fruit of the Loom Valueweight
+178,2022-12-18 14:00:48.322147648,vue,nouveaux_visiteurs,Sénégal,mode,Doudoune sans manches Uniqlo Ultra Light Down
+178,2023-04-12 00:38:39.463087248,achat,nouveaux_visiteurs,Sénégal,electronique,Routeur Wi-Fi TP-Link Archer C7 AC1750
+178,2023-04-12 00:38:39.463087248,achat,nouveaux_visiteurs,Sénégal,mode,T-shirt en coton Fruit of the Loom Valueweight
+178,2023-04-12 00:38:39.463087248,achat,nouveaux_visiteurs,Sénégal,mode,Doudoune sans manches Uniqlo Ultra Light Down
+87,2022-12-21 07:24:33.825503356,vue,nouveaux_visiteurs,Sénégal,maison,Set de cuisine en inox Beka Chef
+87,2023-03-23 22:52:20.939597316,vue,nouveaux_visiteurs,Sénégal,maison,Set de cuisine en inox Beka Chef
+4,2022-12-24 00:48:19.328859060,vue,nouveaux_visiteurs,Bénin,mode,Sandales Birkenstock Arizona
+4,2023-01-09 09:10:52.348993288,vue,nouveaux_visiteurs,France,mode,Sandales Birkenstock Arizona
+4,2023-01-14 19:58:23.355704696,vue,nouveaux_visiteurs,Sénégal,mode,Sandales Birkenstock Arizona
+68,2022-12-26 18:12:04.832214764,vue,clients_existants,Bénin,vehicules,Vélo électrique Vélo'v
+68,2022-12-26 18:12:04.832214764,vue,clients_existants,Bénin,cosmetique,Rouge à joues Milani Baked Blush
+68,2022-12-26 18:12:04.832214764,vue,clients_existants,Bénin,electronique,Enregistreur audio Zoom H6
+68,2022-12-26 18:12:04.832214764,vue,clients_existants,Bénin,mode,Sweat-shirt à capuche Champion Reverse Weave
+140,2022-12-29 11:35:50.335570468,ajout_panier,nouveaux_visiteurs,Bénin,emploi,Offre d'emploi : développeur web
+140,2022-12-29 11:35:50.335570468,ajout_panier,nouveaux_visiteurs,Bénin,sport,Chaussettes de compression CEP Ultralight
+140,2023-01-12 02:34:37.852348992,achat,nouveaux_visiteurs,Sénégal,emploi,Offre d'emploi : développeur web
+140,2023-01-12 02:34:37.852348992,achat,nouveaux_visiteurs,Sénégal,sport,Chaussettes de compression CEP Ultralight
+88,2023-01-23 00:09:39.865771812,ajout_panier,nouveaux_visiteurs,Cameroun,maison,Micro-ondes Sharp R242BKW
+88,2023-01-23 00:09:39.865771812,ajout_panier,nouveaux_visiteurs,Cameroun,mode,Maillot de bain une pièce Speedo
+212,2023-01-28 10:57:10.872483220,vue,nouveaux_visiteurs,Cameroun,electronique,Adaptateur USB-C vers HDMI Anker
+212,2023-04-25 15:37:26.979865772,vue,nouveaux_visiteurs,Sénégal,electronique,Adaptateur USB-C vers HDMI Anker
+141,2023-02-05 15:08:27.382550336,vue,nouveaux_visiteurs,Sénégal,artisanat,Peinture à l'huile sur toile
+141,2023-02-05 15:08:27.382550336,vue,nouveaux_visiteurs,Sénégal,maison,Climatiseur Midea Split Inverter
+146,2023-02-16 12:43:29.395973152,vue,nouveaux_visiteurs,Côte d'Ivoire,emploi,Offre d'emploi : chef de projet
+111,2023-02-21 23:31:00.402684564,vue,nouveaux_visiteurs,France,artisanat,Panier tressé en paille
+111,2023-02-21 23:31:00.402684564,vue,nouveaux_visiteurs,France,alimentation,Bonbons Haribo Goldbears
+111,2023-02-21 23:31:00.402684564,vue,nouveaux_visiteurs,France,mode,Veste de ski Columbia Bugaboo II
+75,2023-02-24 16:54:45.906040268,achat,nouveaux_visiteurs,Sénégal,maison,Bouilloire électrique Moulinex BY540510
+194,2023-03-07 14:29:47.919463084,achat,nouveaux_visiteurs,Sénégal,services,Service de réparation de smartphones
+194,2023-03-07 14:29:47.919463084,achat,nouveaux_visiteurs,Sénégal,cosmetique,Crayon pour les yeux Maybelline Master Precise
+17,2023-03-13 01:17:18.926174496,achat,clients_existants,France,artisanat,Tapisserie murale en tissu wax
+134,2023-03-15 18:41:04.429530200,vue,clients_existants,Sénégal,electronique,Mini haut-parleur portable JBL GO 3
+47,2023-03-26 16:16:06.442953020,vue,nouveaux_visiteurs,Sénégal,electronique,Lecteur MP3 Sony NW-A55
+47,2023-03-26 16:16:06.442953020,vue,nouveaux_visiteurs,Sénégal,mode,Veste en jean Levi's Trucker
+60,2023-04-01 03:03:37.449664428,vue,nouveaux_visiteurs,France,emploi,Offre d'emploi : commercial
+1,2023-04-14 18:02:24.966442952,achat,nouveaux_visiteurs,Sénégal,alimentation,Biscuits Oreo Original
+164,2023-04-17 11:26:10.469798656,achat,clients_existants,Sénégal,electronique,Support de téléphone portable pour voiture iOttie Easy One Touch 4
+61,2023-05-09 06:36:14.496644292,vue,nouveaux_visiteurs,Sénégal,electronique,Casque audio Sony WH-1000XM4
+66,2023-05-12 00:00:00.000000000,vue,nouveaux_visiteurs,Sénégal,maison,Blender Philips HR3556/00
+66,2023-05-12 00:00:00.000000000,vue,nouveaux_visiteurs,Sénégal,mode,Pull en cachemire J.Crew
