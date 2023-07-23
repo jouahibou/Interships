@@ -44,6 +44,7 @@ def plot_transactions(data_transaction):
         pd.to_datetime('2023-04-02'),  # Une semaine avant Pâques
         pd.to_datetime('2023-04-15')   # Une semaine avant 22 avril
     ]
+
     fig = px.line(data_transaction, x='dates', y='transactions', title='Transactions')
     fig.update_xaxes(title='Date')
     fig.update_yaxes(title='Nombre de Transactions')
@@ -55,6 +56,12 @@ def plot_transactions(data_transaction):
 
     return fig
 
+import streamlit as st
+import pandas as pd
+import numpy as np
+import networkx as nx
+import plotly.graph_objects as go
+from prince import MCA
 
 
 def plot_network(df):
@@ -82,55 +89,104 @@ def plot_network(df):
     nodes = pd.DataFrame(pos, index=['x', 'y']).transpose().reset_index()
     nodes.rename(columns={'index': 'node'}, inplace=True)
 
+    # Ajouter les informations de texte pour chaque nœud
+    nodes['node_text'] = nodes['node']
+
+    
     # Créer un DataFrame des arêtes
     edges = pd.DataFrame(list(G.edges()), columns=['source', 'target'])
 
     # Créer un graphique de réseau interactif avec Plotly
     fig = go.Figure()
 
-    # Add nodes to the plot
-    fig.add_trace(go.Scatter(
-        x=nodes['x'], 
-        y=nodes['y'],
+    node_trace_type_client = go.Scatter(
+        x=nodes[nodes['node'].isin(df['type_client'].unique())]['x'],
+        y=nodes[nodes['node'].isin(df['type_client'].unique())]['y'],
+        mode='markers',
+        marker=dict(
+            size=30,
+            color='blue',
+            opacity=0.8,
+            line=dict(width=1.5, color='black')
+        ),
+        text=nodes[nodes['node'].isin(df['type_client'].unique())]['node_text'],
+        hoverinfo='text',
+        textfont=dict(size=25),
+        textposition='middle center'
+    )
+
+    node_trace_region = go.Scatter(
+        x=nodes[nodes['node'].isin(df['region_geographique'].unique())]['x'],
+        y=nodes[nodes['node'].isin(df['region_geographique'].unique())]['y'],
+        mode='markers',
+        marker=dict(
+            size=50,
+            color='red',
+            opacity=0.8,
+            line=dict(width=0.5, color='black')
+        ),
+        text=nodes[nodes['node'].isin(df['region_geographique'].unique())]['node_text'],
+        hoverinfo='text',
+        textfont=dict(size=25),
+        textposition='middle center'
+    )
+
+    node_trace_produit = go.Scatter(
+        x=nodes[nodes['node'].isin(df['nom_produit'].unique())]['x'],
+        y=nodes[nodes['node'].isin(df['nom_produit'].unique())]['y'],
         mode='markers',
         marker=dict(
             size=10,
-            color='blue',
-            symbol='circle'
+            color='green',
+            opacity=0.8,
+            line=dict(width=0.5, color='black')
         ),
-        text=nodes['node'],
-        hoverinfo='text'
-    ))
+        text=nodes[nodes['node'].isin(df['nom_produit'].unique())]['node_text'],
+        hoverinfo='text',
+        textfont=dict(size=25),
+        textposition='middle center'
+    )
+
+    # Ajouter les nœuds au graphique
+    fig.add_trace(node_trace_type_client)
+    fig.add_trace(node_trace_region)
+    fig.add_trace(node_trace_produit)
 
     # Add edges to the plot
-    for i, edge in edges.iterrows():
-        fig.add_trace(go.Scatter(
-            x=[nodes.loc[nodes['node'] == edge['source'], 'x'].iloc[0], 
-               nodes.loc[nodes['node'] == edge['target'], 'x'].iloc[0]],
-            y=[nodes.loc[nodes['node'] == edge['source'], 'y'].iloc[0], 
-               nodes.loc[nodes['node'] == edge['target'], 'y'].iloc[0]],
-            mode='lines',
-            line=dict(
-                color='gray',
-                width=1
-            ),
-            hoverinfo='skip',
-        ))
-
-    fig.update_layout(
-        width=600,
-        height=600,
-        showlegend=False,
-        margin=dict(
-            l=0,
-            r=0,
-            t=0,
-            b=0
-        ),
-        hovermode='closest'
+    edge_trace = go.Scatter(
+        x=[],
+        y=[],
+        line=dict(width=1, color='gray'),
+        hoverinfo='skip',
+        mode='lines'
     )
+
+    for i, edge in edges.iterrows():
+        x0 = nodes.loc[nodes['node'] == edge['source'], 'x'].iloc[0]
+        y0 = nodes.loc[nodes['node'] == edge['source'], 'y'].iloc[0]
+        x1 = nodes.loc[nodes['node'] == edge['target'], 'x'].iloc[0]
+        y1 = nodes.loc[nodes['node'] == edge['target'], 'y'].iloc[0]
+        edge_trace['x'] += tuple([x0, x1, None])
+        edge_trace['y'] += tuple([y0, y1, None])
+
+    fig.add_trace(edge_trace)
+
+    # Mise en forme du graphique
+    fig.update_layout(
+        width=900,
+        height=900,
+        showlegend=False,
+        margin=dict(t=50, b=50, l=50, r=50),
+        hovermode='closest',
+        font=dict(size=12)
+    )
+
+    # Ajouter un titre
+    fig.update_layout(title_text='Réseau de produits, clients et régions géographiques')
 
     return fig
 
-
 # Example usage in a streamlit app
+
+
+

@@ -31,12 +31,23 @@ def page1():
         
     else:
         st.write("Cliquez sur le bouton 'Interprétation' pour afficher les résultats.")
+        
 def page2():
-# Afficher le graphique de réseau interactif
-    network_fig = plot_network(df)
-    st.plotly_chart(network_fig)
+    
+    regions = df['region_geographique'].unique()
+    selected_region = st.sidebar.selectbox('Choisir une région géographique', regions)
 
-menu = ["Accueil", "Historique Commandes","Segmentation Clientéle"]
+# Filtrer les données en fonction de la région géographique sélectionnée
+    filtered_data = df[df['region_geographique'] == selected_region].reset_index(drop=True)
+
+# Afficher le graphique de réseau pour les données filtrées
+    fig = plot_network(filtered_data)
+    st.plotly_chart(fig)
+    
+
+    
+
+menu = ["Accueil", "Historique Commandes","Segmentation Clientèle"]
 choice = st.sidebar.selectbox("Navigation", menu)
 
 # Afficher la page en fonction du choix de l'utilisateur
