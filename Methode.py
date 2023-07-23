@@ -231,8 +231,8 @@ def plot_network(df):
 
     # Configurer le layout du graphique
     fig.update_layout(
-        width=1200,
-        height=1600,
+        width=1000,
+        height=1400,
         showlegend=True,
         hovermode='closest',
         margin=dict(b=20,l=5,r=5,t=40),
@@ -240,6 +240,7 @@ def plot_network(df):
         xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
         yaxis=dict(showgrid=False, zeroline=False, showticklabels=False)
     )
+    fig.update_layout(title_text='Réseau de produits, clients et régions géographiques')
 
     # Afficher le graphique
     
