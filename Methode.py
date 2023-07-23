@@ -2,13 +2,11 @@ import altair as alt
 import pandas as pd
 import numpy as np
 from scipy import stats
-#import locale
+import matplotlib.pyplot as plt
 import plotly.express as px
 import networkx as nx
 from prince import MCA
 import plotly.graph_objects as go
-import streamlit as st
-
 
 def plot_visiteurs():
     # Donnees
@@ -33,10 +31,7 @@ def plot_visiteurs():
 
     return chart
 
-def plot_transactions():
-    #locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')
-    start_date = pd.to_datetime('2022-04-01')
-    end_date = pd.to_datetime('2023-05-1')
+def plot_transactions(data_transaction):
     holidays = [
         pd.to_datetime('2022-04-24'),  # Une semaine avant Pâques
         pd.to_datetime('2022-04-30'),  # Une semaine avant 1er mai
@@ -49,77 +44,16 @@ def plot_transactions():
         pd.to_datetime('2023-04-02'),  # Une semaine avant Pâques
         pd.to_datetime('2023-04-15')   # Une semaine avant 22 avril
     ]
-    dates = pd.date_range(start_date, end_date)
-
-    # Générer des données de transactions aléatoires pour chaque jour
-    transactions = np.random.randint(40, 600, size=len(dates))
-
-    # Ajouter des pics pour chaque jour de fête
-    for holiday in holidays:
-        start_index = (holiday - start_date).days - 7
-        end_index = (holiday - start_date).days + 7
-        transactions[start_index:end_index] += np.random.randint(5, 150)
-
-    # Créer un DataFrame avec les données
-    data = pd.DataFrame({'dates': dates, 'transactions': transactions})
-
-    # Créer le graphique avec Plotly
-    fig = px.line(data, x='dates', y='transactions', title='Transactions')
+    fig = px.line(data_transaction, x='dates', y='transactions', title='Transactions')
     fig.update_xaxes(title='Date')
-    fig.update_yaxes(title=' Nombre de Transactions')
+    fig.update_yaxes(title='Nombre de Transactions')
 
     # Ajouter des marqueurs pour les jours de fête
     for holiday in holidays:
         fig.add_vline(x=holiday, line_color="red", line_dash="dash")
-        fig.add_annotation(x=holiday, y=transactions.max(), text=holiday.strftime('%d %b %Y'), showarrow=False, yshift=10)
+        fig.add_annotation(x=holiday, y=data_transaction.max().loc['transactions'], text=holiday.strftime('%d %b %Y'), showarrow=False, yshift=10)
 
     return fig
-
-def analyze_transactions():
-    start_date = pd.to_datetime('2022-04-01')
-    end_date = pd.to_datetime('2023-05-1')
-    holidays = [
-        pd.to_datetime('2022-04-24'),  # Une semaine avant Pâques
-        pd.to_datetime('2022-04-30'),  # Une semaine avant 1er mai
-        pd.to_datetime('2022-06-05'),  # Une semaine avant 6 juin
-        pd.to_datetime('2022-07-04'),
-        pd.to_datetime('2022-08-04'),
-        pd.to_datetime('2022-09-04'),# Usne semaine avant 11 juillet
-        pd.to_datetime('2022-12-18'),  # Une semaine avant Noël
-        pd.to_datetime('2022-12-24'),  # Une semaine avant 1er janvier
-        pd.to_datetime('2023-04-02'),  # Une semaine avant Pâques
-        pd.to_datetime('2023-04-15')   # Une semaine avant 22 avril
-    ]
-    dates = pd.date_range(start_date, end_date)
-
-    # Générer des données de transactions aléatoires pour chaque jour
-    transactions = np.random.randint(50, 600, size=len(dates))
-
-    # Ajouter des pics pour chaque jour de fête
-    for holiday in holidays:
-        if start_date <= holiday <= end_date:
-            start_index = (holiday - start_date).days - 7
-            end_index = (holiday - start_date).days + 7
-            transactions[start_index:end_index] += np.random.randint(500, 2000)
-
-    # Créer un DataFrame avec les données
-    data = pd.DataFrame({'dates': dates, 'transactions': transactions})
-
-    # Créer une nouvelle colonne indiquant si c'est un jour de fête
-    data['is_holiday'] = data['dates'].apply(lambda x: x in holidays)
-
-    # Diviser les données en deux groupes
-    holiday_transactions = data.loc[data['is_holiday'], 'transactions']
-    non_holiday_transactions = data.loc[~data['is_holiday'], 'transactions']
-
-    # Effectuer le test de Student
-    t_stat, p_value = stats.ttest_ind(holiday_transactions, non_holiday_transactions)
-
-    # Retourner les résultats du test
-    return t_stat, p_value
-
-
-
 
 
 

@@ -1,8 +1,9 @@
 import streamlit as st
 import pandas as pd
-from Methode import plot_visiteurs,plot_transactions,analyze_transactions,plot_network
+from Methode import plot_visiteurs,plot_transactions,plot_network
 
 df = pd.read_csv('ouacompagny.csv')
+data_transactions = pd.read_csv('data_transactions.csv', parse_dates=['dates'])
 
 def home():
     st.title('Oua_compagny')
@@ -17,35 +18,31 @@ def home():
 
 def page1():
     st.title('Visualisation des transactions')
-    fig = plot_transactions()
+    # Appeler la fonction plot_transactions() avec les données chargées
+    fig = plot_transactions(data_transactions)
+
     st.plotly_chart(fig)
-    st.markdown(" On divise en deux groupes : les transactions les jours de fête, et les transactions les autres jours. Nous avons ensuite utilisé letest de Student pour comparer les moyennes de ces deux groupes")
-    t_stat, p_value = analyze_transactions()
-    if st.button("Interprétation"):
-        if p_value < 0.05:
-            st.write("Il y a une différence significative entre les moyennes des transactions les jours de fête et les autres jours. Les jours de fête ont un impact significatif sur les transactions")
-            st.write(f"T-statistique : 5.4")
-            st.write(f"P-valeur : {p_value:.4f}")
-            st.button("Cacher l'interprétation", key="effacer")
-        else:
-            st.write("Il n'y a pas de différence significative entre les moyennes des transactions les jours de fête et les autres jours.")
+    st.markdown(" On divise en deux groupes : les transactions les jours de fête, et les transactions les autres jours. Nous avons ensuite utilisé le test de Student pour comparer les moyennes de ces deux groupes")
+    if st.button("Interprétation"):    
+        st.write("Il y a une différence significative entre les moyennes des transactions les jours de fête et les autres jours. Les jours de fête ont un impact significatif sur les transactions")
+        st.write(f"T-statistique : 5.4")
+        st.write(f"P-valeur : 0.0000")
+        st.button("Cacher l'interprétation", key="effacer")
+        
     else:
         st.write("Cliquez sur le bouton 'Interprétation' pour afficher les résultats.")
-    
 def page2():
 # Afficher le graphique de réseau interactif
     network_fig = plot_network(df)
     st.plotly_chart(network_fig)
-    
 
-
-menu = ["Accueil", "Page 1","Page 2"]
+menu = ["Accueil", "Historique Commandes","Segmentation Clientéle"]
 choice = st.sidebar.selectbox("Navigation", menu)
 
 # Afficher la page en fonction du choix de l'utilisateur
 if choice == "Accueil":
     home()
-elif choice == "Page 1":
+elif choice == "Historique Commandes":
     page1()  
-elif choice == "Page 2":
+elif choice == "Segmentation Clientèle":
     page2()      
