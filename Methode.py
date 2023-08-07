@@ -7,7 +7,8 @@ import plotly.express as px
 import networkx as nx
 from prince import MCA
 import plotly.graph_objects as go
-
+from sklearn.metrics.pairwise import cosine_similarity
+from prince import MCA 
 def plot_visiteurs():
     # Donnees
     labels = ['Nouveaux visiteurs', 'Clients existants']
@@ -197,7 +198,7 @@ def plot_network(df):
             yref="y",
             text=node,
             showarrow=False,
-            font=dict(color='white', size=20),
+            font=dict(color='brown', size=20),
             bgcolor=None
         )
 
@@ -211,7 +212,7 @@ def plot_network(df):
             yref="y",
             text=node,
             showarrow=False,
-            font=dict(color='white', size=20),
+            font=dict(color='brown', size=20),
             bgcolor=None
         )
 
@@ -225,7 +226,7 @@ def plot_network(df):
             yref="y",
             text=node,
             showarrow=False,
-            font=dict(color='white', size=10),
+            font=dict(color='blue', size=10),
             bgcolor=None
         )
 
@@ -237,16 +238,90 @@ def plot_network(df):
         hovermode='closest',
         margin=dict(b=20,l=5,r=5,t=40),
         annotations=[],
+        font=dict(color='blue', size=10),
         xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
         yaxis=dict(showgrid=False, zeroline=False, showticklabels=False)
     )
-    fig.update_layout(title_text='Réseau de produits, clients et régions géographiques')
+    fig.update_layout(
+    title_text='Réseau de produits, clients et régions géographiques',
+    title_font=dict(color='blue', size=30)
+)
 
     # Afficher le graphique
     
     return fig
 
-# Example usage in a streamlit app
+import streamlit as st
+import sys
+import pandas as pd
 
+# Chargement des données
+
+def recommendation():
+    data = pd.read_csv("ouacompagny.csv")
+
+# Traitement des données utilisateur
+    user_data = data[['type_client', 'region_geographique']]
+
+# Appliquer l'Analyse en Correspondances Multiples (MCA) pour obtenir les coordonnées des utilisateurs dans l'espace des composantes principales
+    mca = MCA(n_components=2)  # Utilisation de MCA au lieu de PCA
+    
+# Traitement des données articles
+    article_data = data[['category', 'nom_produit']]
+# Appliquer l'Analyse en Correspondances Multiples (MCA) pour obtenir les coordonnées des articles dans l'espace des composantes principales
+    article_coords = mca.fit_transform(article_data)
+
+# Calcul des similarités entre articles (exemple : similarité cosinus)
+    article_similarities = cosine_similarity(article_coords)
+    # Entrez le type de client
+    client_type = st.radio("Type de client", ['Nouveaux visiteurs', 'Clients existants'])
+    # Entrez le pays
+    country = st.selectbox("Pays", ['Sénégal'])
+
+    # Entrez le nom du produit
+    product_name = st.text_input("Nom du produit")
+
+    recommendations = None
+
+# Utilisez les valeurs récupérées pour exécuter le code
+    if st.button("Recommendations"):
+    # Demander le type de client à l'utilisateur
+        user_type_client = client_type
+
+    # Demander la région géographique à l'utilisateur
+        user_region_geographique = country
+
+        matching_products = data[data['nom_produit'].str.contains(product_name, case=False)]
+        if not matching_products.empty:
+            product_index = matching_products.index[0]
+            product_value = matching_products['nom_produit'].iloc[0]
+            st.success(product_value)
+            # Trouver les articles similaires seulement si le produit est trouvé
+            similar_articles = article_similarities[product_index]
+
+            # Créer une série pandas avec les indices des articles et leurs similarités
+            similar_articles_series = pd.Series(similar_articles, index=data.index)
+
+            # Trier les articles par similarité en ordre décroissant et sélectionner les 4 premiers
+            top_4_articles_indices = similar_articles_series.sort_values(ascending=False).head(4).index
+
+            # Récupérer les informations des produits similaires correspondant aux indices sélectionnés
+            similar_products = data.loc[top_4_articles_indices, ['nom_produit', 'type_client', 'region_geographique']]
+
+            # Filtrer les produits similaires pour exclure le produit donné
+            similar_products = similar_products[similar_products['nom_produit'] != product_name]
+
+            # Supprimer les doublons des produits similaires
+            similar_products = similar_products.drop_duplicates(subset='nom_produit')
+
+            # Stocker les recommandations dans la variable déclarée précédemment
+            recommendations = similar_products['nom_produit']
+
+        else:
+             st.error("Ce produit n'existe pas")
+
+# Afficher les recommandations si elles existent
+    if recommendations is not None:
+        st.write(recommendations)
 
 
