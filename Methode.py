@@ -257,7 +257,7 @@ import pandas as pd
 
 # Chargement des données
 
-def recommendation():
+def recommandation():
     data = pd.read_csv("ouacompagny.csv")
 
 # Traitement des données utilisateur
@@ -315,13 +315,13 @@ def recommendation():
             similar_products = similar_products.drop_duplicates(subset='nom_produit')
 
             # Stocker les recommandations dans la variable déclarée précédemment
-            recommendations = similar_products['nom_produit']
+            recommandations = similar_products['nom_produit']
 
         else:
              st.error("Ce produit n'existe pas")
 
 # Afficher les recommandations si elles existent
-    if recommendations is not None:
-        st.write(recommendations)
+    if recommandations is not None:
+        st.write(recommandation)
 
 
