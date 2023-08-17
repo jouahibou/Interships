@@ -284,7 +284,7 @@ def recommandation():
     recommendations = None
 
 # Utilisez les valeurs récupérées pour exécuter le code
-    if st.button("Recommendations"):
+    if st.button("Recommandation"):
     # Demander le type de client à l'utilisateur
         user_type_client = client_type
 
