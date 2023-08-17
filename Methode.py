@@ -281,7 +281,7 @@ def recommandation():
     # Entrez le nom du produit
     product_name = st.text_input("Nom du produit")
 
-    recommendations = None
+    recommandations = None
 
 # Utilisez les valeurs récupérées pour exécuter le code
     if st.button("Recommandation"):
