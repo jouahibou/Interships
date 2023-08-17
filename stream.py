@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from Methode import plot_visiteurs,plot_transactions,plot_network,recommendation
+from Methode import plot_visiteurs,plot_transactions,plot_network,recommandation
 
 
 
@@ -50,10 +50,10 @@ def run_app():
             fig = plot_network(filtered_data)
             st.plotly_chart(fig)
     def page3():
-        recommendation()
+        recommandation()
         
                 
-    menu = ["", "Accueil", "Historique Commandes", "Segmentation Clientèle","Recommendation"]
+    menu = ["", "Accueil", "Historique Commandes", "Segmentation Clientèle","Recommandation"]
     choice = st.sidebar.selectbox("Navigation", menu)
 
     # Afficher la page en fonction du choix de l'utilisateur
@@ -65,6 +65,6 @@ def run_app():
         page1()  
     elif choice == "Segmentation Clientèle":
         page2()      
-    elif choice == "Recommendation":
+    elif choice == "Recommandation":
         page3()  
 run_app()
