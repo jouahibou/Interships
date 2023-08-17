@@ -322,6 +322,6 @@ def recommandation():
 
 # Afficher les recommandations si elles existent
     if recommandations is not None:
-        st.write(recommandation)
+        st.write(recommandations)
 
 
